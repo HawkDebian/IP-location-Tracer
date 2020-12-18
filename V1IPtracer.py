@@ -1,6 +1,6 @@
 import os
 import json
-import urllib2
+import urllib.request as urllib2
 import sys
 
 sys.ps1 = '\033[01;32m '
@@ -22,13 +22,13 @@ print('''
 
 
 while True:
-    ip=raw_input("Enter the IP of the target: ")
+    ip = input("Enter the IP of the target: ")
     url = "http://ip-api.com/json/"
     response = urllib2.urlopen(url + ip)
     data = response.read()
     values = json.loads(data)
     
-    #n = values['lat'], values['lon']
+    
 
     print(" IP: " + values['query'])
     print(" City: " + values['city'])
